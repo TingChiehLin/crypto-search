@@ -18,7 +18,7 @@ Crypto Search App is a site where you can search and tracks the latest trends of
 
 ## Demo
 
-You can see my project on Vercel [Demo Link]()
+You can see my project on Vercel [Demo Link](https://crypto-search-arnp6ym5g-cooloojayoo.vercel.app)
 
 ## Getting Started
 
