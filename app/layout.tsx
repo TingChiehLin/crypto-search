@@ -29,7 +29,7 @@ export default function RootLayout({
       >
           <RootContainer>
             <NavBar/>
-            <main className="w-full max-w-7xl mx-auto py-16 px-12 md:px-8 2xl:px-0">
+            <main className="w-full max-w-7xl mx-auto py-16 px-6 md:px-8 2xl:px-0">
               {children}
             </main>
             <Footer />
