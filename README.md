@@ -2,7 +2,7 @@
 
 Crypto Search App is a site where you can search and tracks the latest trends of currency
 
-![crypto_search_preview](./public//crypto_search_preview.png)
+![crypto_search_preview](./public/crypto_search_preview.png)
 
 ## Table of contents
 

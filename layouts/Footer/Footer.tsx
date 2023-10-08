@@ -6,7 +6,7 @@ const Footer:FC = () => {
                     © Copyright 2023. Developed by
                     <a  className="font-semibold" target="_blank" 
                         rel="noopener noreferrer" 
-                        href="https://github.com/TingChiehLin">
+                        href="https://github.com/TingChiehLin/crypto-search">
                         &nbsp;Ting Chieh Lin
                     </a>
                 </span>

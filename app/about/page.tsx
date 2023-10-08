@@ -7,7 +7,7 @@ const AboutPage:NextPage = () => {
     return (
         <>
             <H1 title={"About"}/>
-            <div className="w-full max-w-2xl leading-loose text-sm md:text-base">
+            <div className="w-full max-w-2xl flex flex-col gap-y-2 leading-loose text-sm md:text-base">
                 <p>Crypto Search App is inspired by 
                     <a 
                         href="https://www.coingecko.com/" 
@@ -22,7 +22,7 @@ const AboutPage:NextPage = () => {
                     <p>You can find source code:</p>
                     <a
                         className="inline-block"
-                        href=""
+                        href="https://github.com/TingChiehLin/crypto-search"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
