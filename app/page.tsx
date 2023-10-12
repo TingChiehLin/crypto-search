@@ -9,7 +9,6 @@ import Table from '@/components/Table';
 import Image from 'next/image';
 
 import { useCryptoCoins } from '@/services/api';
-import { CRYPTO_MOCK_DATA} from '@/services/cryptos.mock';
 import { CryptoField } from '@/services/cryptoField';
 
 import NotFound from '@/public/assets/img/notfund.png';
