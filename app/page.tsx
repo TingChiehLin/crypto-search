@@ -35,7 +35,7 @@ const validateSearch = (currentValue:requestFormType) => {
   }
 
   if(value === "") {
-    return "Please input search text"
+    return "Search bar can not be empty"
   }
 
   return ""
@@ -52,9 +52,8 @@ const initialData:requestFormType = {
 export default function Home() {
 
   const cryptos = useCryptoCoins();
-
   const [values, setValues] = React.useState(initialData);
-  const [filteredData, setFilteredData] = React.useState(cryptos.data ?? CRYPTO_MOCK_DATA);
+  const [filteredData, setFilteredData] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [perPage] = React.useState(10);
 
@@ -62,6 +61,12 @@ export default function Home() {
   const end = currentPage * perPage; 
   const formateDate = filteredData?.slice(start, end);
   const totalPage = Math.ceil(filteredData?.length / perPage);
+
+  React.useEffect(() => {
+    if(cryptos.data) {
+      setFilteredData(cryptos.data);
+    }
+  }, [cryptos.data])
 
   const handleValues = (event:React.ChangeEvent<HTMLInputElement>) => {
   
@@ -160,16 +165,16 @@ export default function Home() {
           </div>
           <Dropdown handleClick={handleSortPrice}/>
         </div>
-      {cryptos.data?.length === 0 ? 
-          <div className='h-full flex flex-col justify-center items-center'>
+      {filteredData.length === 0 ? 
+          <div className='flex flex-col justify-center items-center'>
             <Image 
               src={NotFound} alt="no data" width={0} height={0} sizes={"100vw"}
             />
             <span className='text-zinc-700'>There is no any data can not be found</span>
           </div>
-        : <Table tableData={formateDate} isLoading={cryptos.isLoading}/>
+        : <Table tableData={formateDate} isLoading={cryptos.isLoading }/>
       }
-      {!cryptos.isLoading  && cryptos.data?.length !== 0 && 
+      {!cryptos.isLoading  && filteredData.length !== 0 && 
                 <Pagnation  currentPage={currentPage}
                             totalPage={totalPage}
                             handleCurPage={handleCurPage}
@@ -177,6 +182,7 @@ export default function Home() {
                             handleNextPage={handleNextPage} 
                 />
       }
+      {cryptos.error && <div className='text-red-500'>Error</div>}
     </>
   )
 }
