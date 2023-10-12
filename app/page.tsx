@@ -97,6 +97,19 @@ export default function Home() {
 
   }
 
+  const handleBlur = (event:React.FocusEvent<HTMLInputElement>) => {
+    const {name} = event.target;
+    setValues((preState) => {
+      return {
+        ...preState,
+        [name]: {
+          ...preState[name as keyof requestFormType],
+          error: preState[name as keyof requestFormType].validator(preState)
+        }
+      }
+    })
+  }
+
   const handleSubmit = () => {
 
     const value = values["crypto-search"].value.toLocaleLowerCase().trim();
@@ -159,12 +172,14 @@ export default function Home() {
                         error={values["crypto-search"].error}
                         placeholder={"Please input search text"} 
                         onChange={handleValues} 
+                        onBlur={handleBlur}
             />
             <Button title={'Search'} onClick={handleSubmit}/>
           </div>
           <Dropdown handleClick={handleSortPrice}/>
         </div>
-      {filteredData.length === 0 ? 
+      
+      {(filteredData.length === 0 && !cryptos.isLoading) ? 
           <div className='flex flex-col justify-center items-center'>
             <Image 
               src={NotFound} alt="no data" width={0} height={0} sizes={"100vw"}

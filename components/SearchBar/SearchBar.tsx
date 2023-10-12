@@ -10,6 +10,7 @@ interface SearchPropType {
     error: string,
     placeholder: string,
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
+    onBlur: (event: React.FocusEvent<HTMLInputElement>) => void,
 }
 
 const SearchBar:FC<SearchPropType> = ({...props}) => {  
