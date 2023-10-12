@@ -104,7 +104,7 @@ export default function Home() {
         ...preState,
         [name]: {
           ...preState[name as keyof requestFormType],
-          error: preState[name as keyof requestFormType].validator(preState)
+          error: ""
         }
       }
     })
